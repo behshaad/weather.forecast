@@ -1,7 +1,7 @@
 const currentDayForecast = data => [
     {
         name: 'predictability',
-        value: data.predictability,
+        value: data.main,
         unit: '%',
     },
     {

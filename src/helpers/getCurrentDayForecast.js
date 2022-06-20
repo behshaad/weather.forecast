@@ -1,12 +1,13 @@
 import moment from 'moment';
 
 const getCurrentDayForecast = (data, title) => ({
-    weekday: moment(data.applicable_date).format('dddd'),
-    date: moment(data.applicable_date).format('MMMM Do'),
-    location: title,
-    temperature: Math.round(data.the_temp),
-    weatherIcon: `https://www.metaweather.com/static/img/weather/${data.weather_state_abbr}.svg`,
-    weatherDescription: data.weather_state_name,
+    weekday: moment(data.timezone).format('dddd'),
+    date: moment(data.timezone).format('MMMM Do'),
+    location: data.name,
+    temperature: data.main.temp,
+    weatherIcon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+    weatherDescription: data.weather[0].description,
 });
 
 export default getCurrentDayForecast;
+// var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";

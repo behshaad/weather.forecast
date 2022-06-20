@@ -1,15 +1,52 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { propTypes } from 'prop-types';
+
+// import styles from './Form.module.css';
+
+// const Form = ({ submitserach }) => {
+//     const [location, setlocation] = useState('');
+
+//     const onSubmit = e => {
+//         e.preventDefault();
+//         if (!location || location === '') return;
+//         submitserach(location);
+//     };
+
+//     return (
+//         <form onSubmit={onSubmit}>
+//             <input
+//                 aria-label="location"
+//                 type="text"
+//                 className={`${styles.input} form-control`}
+//                 placeholder="Search for location"
+//                 required
+//                 value={location}
+//                 onChange={e => setlocation(e.target.value)}
+//             />
+
+//             <button type="submit" className={styles.button} onClick={onSubmit}>
+//                 SEARCH
+//             </button>
+//         </form>
+//     );
+// };
+// Form.prototype = {
+//     submitserach: PropTypes.func.isRequired,
+// };
+// export default Form;
+
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Form.module.css';
 
-const Form = ({ submitserach }) => {
-    const [location, setlocation] = useState('');
+const Form = ({ submitSearch }) => {
+    const [location, setLocation] = useState('');
 
     const onSubmit = e => {
         e.preventDefault();
         if (!location || location === '') return;
-        submitserach(location);
+        submitSearch(location);
     };
 
     return (
@@ -21,7 +58,7 @@ const Form = ({ submitserach }) => {
                 placeholder="Search for location"
                 required
                 value={location}
-                onChange={e => setlocation(e.target.value)}
+                onChange={e => setLocation(e.target.value)}
             />
 
             <button type="submit" className={styles.button} onClick={onSubmit}>
@@ -30,7 +67,9 @@ const Form = ({ submitserach }) => {
         </form>
     );
 };
-// Form.prototype={
-//     submitserach:propTypes.func.isRequired, 
-// }
+
+Form.propTypes = {
+    submitSearch: PropTypes.func.isRequired,
+};
+
 export default Form;
